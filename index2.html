@@ -1,0 +1,506 @@
+Since I am an AI assistant, I can't directly host or render the live, interactive website right here in the chat window. However, it's very easy to view the exact visual output on your own computer!
+
+Here is exactly how you can see your new animated portfolio:
+
+### Steps to View Your Website
+1. **Copy the Code:** Click the "Copy code" button on the HTML block provided below. 
+2. **Open a Text Editor:** Open a basic text editor on your computer (like Notepad for Windows, TextEdit for Mac, or VS Code).
+3. **Paste and Save:** Paste the code into the editor and save the file as **`portfolio.html`**.
+4. **Prepare Your Photo:** Ensure your uploaded profile picture (named exactly `LAKESH MOULI prof img.jpg`) is saved in the exact same folder as your new `portfolio.html` file.
+5. **Launch:** Double-click the `portfolio.html` file. It will automatically open in your default web browser (like Chrome, Edge, or Safari), and you will see the fully designed website with the glowing effects and scrolling templates!
+
+To make it work perfectly on the first try, I've updated the code below to correctly link your specific image filename (`LAKESH MOULI prof img.jpg`) and updated your contact buttons to route to `lakeshmouli.sd@gmail.com`.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lakesh Mouli Veeramalla | Portfolio</title>
+    <style>
+        /* Base Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #fff;
+            /* DevOps background image */
+            background-image: url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Scrolling Light Effect */
+        @keyframes borderGlow {
+            0% { border-color: transparent; }
+            25% { border-color: rgba(0, 255, 255, 0.7); }
+            50% { border-color: transparent; }
+            75% { border-color: rgba(255, 0, 255, 0.7); }
+            100% { border-color: transparent; }
+        }
+
+        .glow-block {
+            border: 2px solid transparent;
+            transition: border-color 0.5s ease-in-out;
+            border-radius: 15px;
+            overflow: hidden;
+            background-color: rgba(18, 18, 18, 0.85); 
+        }
+
+        .glow-block:hover {
+            animation: borderGlow 2s linear infinite;
+        }
+
+        /* Layout */
+        section {
+            padding: 100px 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1, h2, h3 {
+            margin-top: 0;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        h2 {
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 50px;
+            color: #00ffff;
+        }
+
+        h3 {
+            font-size: 1.5em;
+            color: #ff00ff;
+        }
+
+        p {
+            line-height: 1.8;
+            font-size: 1.1em;
+        }
+
+        ul {
+            list-style: disc;
+            margin-left: 20px;
+        }
+
+        /* Hero Section */
+        #hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.5); 
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hero-photo {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #00ffff;
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+            margin-bottom: 30px;
+            background-color: #fff;
+        }
+
+        .hero-title h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            color: #fff;
+            text-shadow: 0 0 10px #00ffff;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3em;
+            color: #ff00ff;
+            margin-bottom: 30px;
+            font-weight: normal;
+        }
+
+        .contact-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .contact-pills a {
+            text-decoration: none;
+            color: #fff;
+            background: linear-gradient(135deg, #00ffff, #ff00ff);
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 0.9em;
+            transition: transform 0.2s;
+        }
+
+        .contact-pills a:hover {
+            transform: scale(1.05);
+        }
+
+        /* Professional Summary */
+        #about {
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        .summary-block {
+            padding: 50px;
+        }
+
+        /* Technical Skills - Horizontal Scrolling */
+        #skills {
+            padding-bottom: 150px;
+        }
+
+        .skills-container {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 20px;
+            padding: 10px;
+            cursor: grab;
+            scrollbar-width: thin; 
+            scrollbar-color: #00ffff #1a1a1a;
+        }
+
+        .skills-container::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .skills-container::-webkit-scrollbar-thumb {
+            background: #00ffff;
+            border-radius: 10px;
+        }
+
+        .skill-card {
+            flex: 0 0 calc(25% - 20px); 
+            background-color: rgba(26, 26, 26, 0.9);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            scroll-snap-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 255, 255, 0.3);
+        }
+
+        .skill-card h3 {
+            margin-bottom: 15px;
+        }
+
+        .skill-card p {
+            font-size: 1em;
+            color: #ddd;
+        }
+
+        .featured-skill {
+            border: 2px dashed #ff00ff;
+        }
+
+        /* Professional Experience */
+        #experience {
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        .experience-block {
+            margin-bottom: 50px;
+            padding: 50px;
+        }
+
+        .job-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .company-dates {
+            font-weight: bold;
+            color: #ddd;
+        }
+
+        /* Projects - Horizontal Scrolling */
+        .projects-container {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 20px;
+            padding: 10px;
+            scrollbar-width: thin;
+            scrollbar-color: #ff00ff #1a1a1a;
+        }
+
+        .projects-container::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .projects-container::-webkit-scrollbar-thumb {
+            background: #ff00ff;
+            border-radius: 10px;
+        }
+
+        .project-card {
+            flex: 0 0 calc(33.33% - 20px);
+            background-color: rgba(26, 26, 26, 0.9);
+            border-radius: 15px;
+            padding: 30px;
+            scroll-snap-align: center;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .tech-tags {
+            font-size: 0.9em;
+            color: #00ffff;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        /* Education */
+        #education {
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        .education-block {
+            padding: 50px;
+            margin-bottom: 30px;
+        }
+
+        /* Key Strengths */
+        #strengths {
+            padding-bottom: 150px;
+        }
+
+        .strengths-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .strength-card {
+            padding: 40px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #121212;
+            padding: 30px;
+            text-align: center;
+            font-size: 0.9em;
+            color: #999;
+            border-top: 1px solid #1a1a1a;
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 900px) {
+            .skill-card, .project-card {
+                flex: 0 0 calc(50% - 20px);
+            }
+        }
+
+        @media (max-width: 600px) {
+            section { padding: 60px 20px; }
+            .hero-title h1 { font-size: 2.2em; }
+            .hero-subtitle { font-size: 1.1em; }
+            .hero-photo { width: 180px; height: 180px; }
+            .skill-card, .project-card { flex: 0 0 100%; }
+            .job-title { flex-direction: column; align-items: flex-start; }
+            .company-dates { margin-top: 5px; }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <section id="hero">
+        <div class="hero-content">
+            <img src="LAKESH MOULI prof img.jpg" alt="Lakesh Mouli Veeramalla" class="hero-photo">
+            <div class="hero-title">
+                <h1>LAKESH MOULI VEERAMALLA</h1>
+                <h2 class="hero-subtitle">Software Developer | IoT & Cloud Computing | Fresher</h2>
+            </div>
+            <div class="contact-pills">
+                <a href="tel:+917013795769"><i class="fas fa-phone"></i> +91 70137 95769</a>
+                <a href="mailto:lakeshmouli.sd@gmail.com"><i class="fas fa-envelope"></i> lakeshmouli.sd@gmail.com</a>
+                <a href="#"><i class="fas fa-map-marker-alt"></i> Rajahmundry, Andhra Pradesh</a>
+                <a href="https://www.linkedin.com/in/lakesh-mouli-veeramalla" target="_blank"><i class="fab fa-linkedin"></i> linkedin.com/in/lakesh-mouli-veeramalla</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>Professional Summary</h2>
+        <div class="summary-block glow-block">
+            <p>Results-driven Software Developer with hands-on experience in Python, IoT systems, and AWS Cloud services. Demonstrated ability to design end-to-end solutions integrating embedded hardware, cloud platforms, and data visualization. Completed internships at AWS Cloud and IoT domains, delivering measurable outcomes including a 40% reduction in software bugs. Eager to contribute technical skills to an innovative engineering team.</p>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>Technical Skills</h2>
+        <div class="skills-container">
+            <div class="skill-card glow-block featured-skill">
+                <h3>Top Skill: Python</h3>
+                <p>Advanced knowledge, automation, real-time data collection, computer vision pipelines.</p>
+            </div>
+            <div class="skill-card glow-block featured-skill">
+                <h3>Top Skill: AWS Cloud</h3>
+                <p>Architecting and deploying on EC2, S3, Lambda, SES, IoT Core. Focus on automation.</p>
+            </div>
+            <div class="skill-card glow-block">
+                <h3>Cloud & DevOps</h3>
+                <p>AWS, Azure IoT Hub, Boto3 SDK, Linux, Git.</p>
+            </div>
+            <div class="skill-card glow-block">
+                <h3>IoT & Hardware</h3>
+                <p>Arduino, Raspberry Pi, MQTT, Sensor Modules, IoT Gateways.</p>
+            </div>
+            <div class="skill-card glow-block">
+                <h3>Data & ML</h3>
+                <p>Pandas, Scikit-learn, Matplotlib, Streamlit, MySQL.</p>
+            </div>
+            <div class="skill-card glow-block">
+                <h3>Computer Vision</h3>
+                <p>OpenCV, Tesseract OCR, YOLO, Haar Cascades.</p>
+            </div>
+            <div class="skill-card glow-block">
+                <h3>Tools & Programming</h3>
+                <p>JSON, VS Code, Linux, Git, SQL, Python.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <h2>Professional Experience</h2>
+        
+        <div class="experience-block glow-block">
+            <div class="job-title">
+                <h3>AWS Cloud Analyst Intern</h3>
+                <span class="company-dates">Technical Hub | May 2023 – July 2023</span>
+            </div>
+            <ul>
+                <li>Supervised deployment and monitoring of production applications on AWS infrastructure, ensuring 99%+ uptime.</li>
+                <li>Automated cloud resource monitoring using Python and Boto3, cutting manual auditing time by 30%.</li>
+                <li>Implemented a continuous learning framework around advanced troubleshooting techniques, achieving a 40% reduction in software bugs and improving overall platform stability.</li>
+            </ul>
+        </div>
+
+        <div class="experience-block glow-block">
+            <div class="job-title">
+                <h3>IoT Developer Intern</h3>
+                <span class="company-dates">SkillDzire | Jan 2024 – May 2024</span>
+            </div>
+            <ul>
+                <li>Designed, developed, and tested IoT solutions integrating sensors, microcontrollers (Arduino/Raspberry Pi), and cloud platforms.</li>
+                <li>Developed Python automation scripts for real-time data collection, processing, and IoT device control via MQTT protocol.</li>
+                <li>Configured and managed IoT gateways ensuring secure, reliable device-to-cloud communication on AWS IoT Core and Azure IoT Hub.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Key Projects</h2>
+        <div class="projects-container">
+            <div class="project-card glow-block">
+                <h3>AWS Cloud Resource Monitor</h3>
+                <span class="tech-tags">Python, Boto3, AWS Lambda, AWS SES, JSON</span>
+                <p>Built an automated monitoring script using Boto3 to track EC2 instance health, S3 bucket usage, and cost thresholds.</p>
+            </div>
+
+            <div class="project-card glow-block">
+                <h3>IoT Data Visualizer & Predictor</h3>
+                <span class="tech-tags">Python, Pandas, Scikit-learn, Streamlit, MySQL</span>
+                <p>Created an interactive Streamlit dashboard to fetch and visualize real-time IoT sensor data stored in MySQL.</p>
+            </div>
+
+            <div class="project-card glow-block">
+                <h3>Cloud-Based ANPR System</h3>
+                <span class="tech-tags">Python, OpenCV, Tesseract, YOLO, AWS S3/Lambda, Boto3</span>
+                <p>Engineered an end-to-end computer vision pipeline for real-time vehicle license plate detection and recognition.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <h2>Education</h2>
+        <div class="education-block glow-block">
+            <h3>M.Tech – VLSI Design</h3>
+            <p>Aditya University | 2025 – 2027</p>
+        </div>
+        <div class="education-block glow-block">
+            <h3>B.Tech – ECE</h3>
+            <p>Aditya College of Engineering | 2020 – 2024</p>
+        </div>
+    </section>
+
+    <section id="strengths">
+        <h2>Key Strengths</h2>
+        <div class="strengths-grid">
+            <div class="strength-card glow-block">
+                <h3>Full-Stack IoT Capability</h3>
+                <p>Strong foundation in both hardware (IoT/embedded) and software (cloud/Python), enabling full-stack solution development.</p>
+            </div>
+            <div class="strength-card glow-block">
+                <h3>Quantifiable Impact</h3>
+                <p>Proven ability to quantify impact – delivered measurable results including 40% bug reduction and automated cloud monitoring.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Copyrights Reserved by Lakesh Mouli Veeramalla 2026</p>
+    </footer>
+
+    <script>
+        const sliders = document.querySelectorAll('.skills-container, .projects-container');
+        sliders.forEach(slider => {
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+
+            slider.addEventListener('mousedown', (e) => {
+                isDown = true;
+                startX = e.pageX - slider.offsetLeft;
+                scrollLeft = slider.scrollLeft;
+            });
+            slider.addEventListener('mouseleave', () => { isDown = false; });
+            slider.addEventListener('mouseup', () => { isDown = false; });
+            slider.addEventListener('mousemove', (e) => {
+                if(!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - slider.offsetLeft;
+                const walk = (x - startX) * 2; 
+                slider.scrollLeft = scrollLeft - walk;
+            });
+        });
+    </script>
+</body>
+</html>
+```
